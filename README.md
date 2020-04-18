@@ -12,5 +12,5 @@ A code editor and git
 
 ## Author
 
-1. Ashwin Nandakumar (Js and Css)
+1. Ashwin Nandakumar (Css and js)
 
