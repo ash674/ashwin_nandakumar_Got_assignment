@@ -30,16 +30,14 @@ const houseData = [
 
   ];
 
-  let houseName = '', newSource = '', arrayData, videoSrc;
 
 function showLightBox()
 {
   //debugger;
-  houseName = this.className.split(" ")[1];
-  newSource = houseName.charAt(0).toUpperCase() + houseName.slice(1);
-  arrayData = this.dataset.offset;
-
-  videoSrc = `video/House-${houseName}.mp4`;
+let  houseName = this.className.split(" ")[1];
+let  newSource = houseName.charAt(0).toUpperCase() + houseName.slice(1);
+  paragraph = this.dataset.offset;
+let videoSrc = `video/House-${houseName}.mp4`;
 }
 
 function hideLightBox()
@@ -58,18 +56,17 @@ function animateBanners()
   imageContainer.style.right = `${newPosition}px`;
 }
 
-function changeText()
+function houseInfoChange()
 {
-  currentHouseName.textContent = `House ${houseData[arrayData][0]}`;
+  currentHouseName.textContent = `House ${houseData[paragraph][0]}`;
   console.log(currentHouseName.textContent);
-  houseDescription.textContent = `${houseData[arrayData][1]}`;
-  setTimeout(function()
-  {
+  houseDescription.textContent = `${houseData[paragraph][1]}`;
+setTimeout(function(){
     lightbox.classList.add("show-lightbox");
     videoBox.src = videoSrc;
     videoBox.load();
     videoBox.play();
-  }, 5000);
+ }, 5000)
 }
 
 function pauseVideo(){
@@ -86,7 +83,7 @@ function rewindVideo(){
   videoBox.currentTime = 0;
 }
 
-imageContainer.addEventListener("transitionend", changeText);
+imageContainer.addEventListener("transitionend", houseInfoChange);
 sigilButtons.forEach(button => button.addEventListener("click", showLightBox));
 sigilButtons.forEach(button => button.addEventListener("click", animateBanners));
 closeButton.addEventListener("click", hideLightBox);
